@@ -41,6 +41,7 @@ Set-AzureRmWebApp -Name $webappnameapi -ResourceGroupName $resourceGroupName -We
 
 $website = Get-AzureRmWebApp -Name $webappnameapi -ResourceGroupName $resourceGroupName 
 $website.SiteConfig.AlwaysOn=$true
+$website.ClientAffinityEnabled=$False
 $website | Set-AzureRmWebApp
 For($i=0;$i -lt $vdir.Count;$i++)
 {
